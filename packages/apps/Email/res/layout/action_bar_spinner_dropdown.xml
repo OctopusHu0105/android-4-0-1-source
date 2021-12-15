@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2010 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<!--
+    The list items for the account spinner drop down.
+    Popup width is set at runtime from @dimen/account_spinner_dropdown_width
+-->
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="64dp"
+    >
+    <TextView
+        android:id="@+id/unread_count"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        style="@style/unread_count"
+        />
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:orientation="vertical"
+        android:layout_toLeftOf="@+id/unread_count"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        >
+        <TextView
+            android:id="@+id/display_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/action_bar_account_name"
+            />
+        <TextView
+            android:id="@+id/email_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/action_bar_account_name_secondary"
+            />
+    </LinearLayout>
+    <View
+        android:id="@+id/color_chip"
+        android:layout_width="32dip"
+        android:layout_height="6dip"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="8dip"
+        android:visibility="gone"
+        />
+</RelativeLayout>
