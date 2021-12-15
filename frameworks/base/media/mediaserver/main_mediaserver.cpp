@@ -35,13 +35,19 @@ using namespace android;
 
 int main(int argc, char** argv)
 {
+    // 获取一个 ProcessState 实例
+    // 每一个进程 只有 ProcessState   独一无二
     sp<ProcessState> proc(ProcessState::self());
+     // 得到IServiceManager ，与另外一个进程 ServiceManager 通讯
     sp<IServiceManager> sm = defaultServiceManager();
+
     LOGI("ServiceManager: %p", sm.get());
     AudioFlinger::instantiate();
     MediaPlayerService::instantiate();
     CameraService::instantiate();
     AudioPolicyService::instantiate();
+
+     // 监听
     ProcessState::self()->startThreadPool();
     IPCThreadState::self()->joinThreadPool();
 }

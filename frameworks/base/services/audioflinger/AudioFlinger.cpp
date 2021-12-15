@@ -107,14 +107,17 @@ static bool settingsAllowed() {
 
 // To collect the amplifier usage
 static void addBatteryData(uint32_t params) {
+    //  defaultServiceManager 获取service manager引用
+     //获取名为"media.player"的binder接口
     sp<IBinder> binder =
         defaultServiceManager()->getService(String16("media.player"));
+    //将biner对象转换为强引用类型的IMediaPlayerService
     sp<IMediaPlayerService> service = interface_cast<IMediaPlayerService>(binder);
     if (service.get() == NULL) {
         LOGW("Cannot connect to the MediaPlayerService for battery tracking");
         return;
     }
-
+    // 接口调用
     service->addBatteryData(params);
 }
 
